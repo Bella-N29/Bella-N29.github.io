@@ -1,0 +1,260 @@
+.page1{
+margin:0;
+font-family:Arial, sans-serif;
+background: #0b0b0b;;
+color:white;
+}
+
+.hero h1{
+
+font-family:'Bebas Neue', sans-serif;
+
+font-size:90px;
+
+letter-spacing:6px;
+
+text-transform:uppercase;
+
+background:linear-gradient(90deg,#f5c518,#ffffff);
+
+-webkit-background-clip:text;
+
+color:transparent;
+
+text-shadow:0 10px 30px rgba(0,0,0,0.8);
+
+margin-bottom:20px;
+
+}
+
+/* NAVBAR */
+
+/* ===== NAVBAR FIXE ET IDENTIQUE SUR TOUTES LES PAGES ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;  /* Padding identique partout */
+    background: #000000;
+    position: fixed;      /* CHANGE : fixed au lieu de sticky */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid #f5c518;
+    box-sizing: border-box; /* Important pour que le padding ne déborde pas */
+}
+
+/* Ajustement du contenu pour ne pas être caché sous la navbar fixe */
+body {
+    padding-top: 80px;  /* Ajustez selon la hauteur de votre navbar */
+    margin: 0;
+}
+
+/* Pour les pages avec classe spécifique */
+body.page1, body.page2, body.page3, body.page4 {
+    padding-top: 80px;
+}
+
+.logo {
+    color: #f5c518;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin: 0;
+    white-space: nowrap; /* Empêche le logo de passer à la ligne */
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap; /* Permet aux liens de s'adapter sur mobile */
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: 1.1rem;
+    padding: 8px 12px;
+    border-radius: 5px;
+    white-space: nowrap; /* Empêche les liens de passer à la ligne */
+}
+
+.navbar a:hover {
+    color: #1a4d2e;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar a.active {
+    color: #f5c518;
+    border-bottom: 2px solid #f5c518;
+}
+
+/* ===== RESPONSIVE POUR LA NAVBAR ===== */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 15px 30px;
+    }
+    
+    .navbar ul {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+    
+    .navbar ul {
+        margin-top: 10px;
+        gap: 15px;
+        justify-content: center;
+    }
+    
+    .logo {
+        font-size: 1.8rem;
+    }
+    
+    .navbar a {
+        font-size: 1rem;
+        padding: 5px 10px;
+    }
+    
+    body, body.page1, body.page2, body.page3, body.page4 {
+        padding-top: 120px; /* Plus grand car navbar en colonne */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar ul {
+        gap: 8px;
+    }
+    
+    .navbar a {
+        font-size: 0.85rem;
+        padding: 5px 8px;
+    }
+    
+    body {
+        padding-top: 140px;
+    }
+}
+
+/* HERO IMAGE */
+
+.hero{
+height:90vh;
+
+background:
+linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+url("image5.jpeg");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.hero-text{
+padding:50px;
+border-radius:10px;
+max-width:700px;
+}
+.hero h1{
+font-size:60px;
+color:greenyellow;
+}
+
+.hero p{
+font-size:20px;
+margin:20px 0;
+}
+
+.btn{
+background:darkgreen;
+padding:12px 30px;
+text-decoration:none;
+color:black;
+font-weight:bold;
+border-radius:5px;
+display:inline-block;
+transition:0.3s;
+}
+
+/* animation quand la souris passe dessus */
+
+.btn:hover{
+background:#2ecc71;
+transform:scale(1.1);
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+
+/* SECTION CARDS */
+
+.presentation{
+padding:60px;
+text-align:center;
+}
+
+.presentation h2{
+margin-bottom:40px;
+font-size:35px;
+}
+
+.cards{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.card{
+background:#111;
+border-radius:15px;
+overflow:hidden;
+width:300px;
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.card h3{
+margin:15px;
+color:green;
+}
+
+.card p{
+margin:15px;
+color:gray;
+}
+
+footer{
+text-align:center;
+padding:1px;
+background:linear-gradient(90deg, #1a4d2e, #f5c518, #1a4d2e);
+margin-top:40px;
+}
+
+
+
+
