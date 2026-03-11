@@ -1,0 +1,551 @@
+/* page3.css - Design original avec titre dégradé amélioré */
+/* Inspiré des courts de tennis modernes */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Bebas+Neue&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.page3 {
+    font-family: 'Roboto', sans-serif;
+    background: #0a0a0a;
+    color: #ffffff;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    padding: 40px 20px;
+}
+
+/* Effet de court de tennis en arrière-plan */
+body.page3::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(26, 77, 46, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26, 77, 46, 0.05) 1px, transparent 1px);
+    background-size: 80px 80px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ===== TITRE PRINCIPAL SUPER AMÉLIORÉ ===== */
+h1 {
+    font-family: 'Oswald', 'Bebas Neue', sans-serif;
+    font-size: 4.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 20px 0 60px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+    
+    /* Dégradé magnifique */
+    background: linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #1a4d2e 25%,
+        #2ecc71 50%,
+        #1a4d2e 75%,
+        #ffffff 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    
+    /* Animation du dégradé */
+    animation: gradientMove 5s ease infinite, titlePulse 3s infinite alternate;
+    
+    /* Ombre pour faire ressortir */
+    text-shadow: 0 0 20px rgba(26, 77, 46, 0.5), 0 0 40px rgba(255, 255, 255, 0.3);
+    
+    /* Ligne décorative */
+    padding-bottom: 20px;
+}
+
+/* Animation du dégradé qui se déplace */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes titlePulse {
+    0% { text-shadow: 0 0 20px rgba(26, 77, 46, 0.5), 0 0 40px rgba(255, 255, 255, 0.2); }
+    100% { text-shadow: 0 0 40px rgba(26, 77, 46, 0.8), 0 0 60px rgba(255, 255, 255, 0.4); }
+}
+
+/* Décoration avec balles */
+h1::before {
+    content: '🎾  🎾  🎾';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    opacity: 0.3;
+    letter-spacing: 20px;
+    white-space: nowrap;
+    color: #1a4d2e;
+}
+
+h1::after {
+    content: '🎾  🎾  🎾';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    opacity: 0.3;
+    letter-spacing: 20px;
+    white-space: nowrap;
+    color: #1a4d2e;
+}
+
+/* Version alternative - Dégradé vertical */
+/* Décommentez si vous préférez celui-ci */
+/*
+h1 {
+    background: linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        #1a4d2e 50%,
+        #ffffff 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+*/
+
+/* Version avec effet de relief */
+/* Décommentez si vous préférez celui-ci */
+/*
+h1 {
+    background: radial-gradient(circle at 30% 30%, #ffffff, #1a4d2e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+*/
+
+/* Container */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Style des cartes */
+.celebrite {
+    flex: 0 0 calc(33.333% - 30px);
+    min-width: 300px;
+    background: #111111;
+    border: 2px solid #1a4d2e;
+    border-radius: 15px;
+    padding: 20px 15px 25px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Effet de filet discret */
+.celebrite::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 8px,
+        rgba(26, 77, 46, 0.03) 8px,
+        rgba(26, 77, 46, 0.03) 16px
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.celebrite:hover {
+    transform: translateY(-8px);
+    border-color: #ffffff;
+    box-shadow: 0 15px 30px rgba(26, 77, 46, 0.5);
+}
+
+/* Images */
+.celebrite img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    object-position: center 20%;
+    border-radius: 50%;
+    border: 4px solid #1a4d2e;
+    margin: 10px auto 15px;
+    display: block;
+    transition: all 0.5s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    background-color: #333;
+    z-index: 2;
+    position: relative;
+}
+
+.celebrite:hover img {
+    transform: scale(1.05);
+    border-color: #ffffff;
+    box-shadow: 0 0 25px #1a4d2e;
+}
+
+/* Titre des cartes */
+.celebrite h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 10px 0 5px;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(90deg, #ffffff, #1a4d2e, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+}
+
+/* Indicateur de nationalité (drapeau) */
+.celebrite h2 span {
+    font-size: 1.8rem;
+    margin-right: 5px;
+    display: inline-block;
+    -webkit-text-fill-color: initial;
+    color: initial;
+}
+
+/* Bande de couleur nationale sous le titre */
+.celebrite .nationality-strip {
+    width: 100%;
+    height: 4px;
+    margin: 5px 0 10px;
+    background: linear-gradient(90deg, transparent, #1a4d2e, transparent);
+}
+
+/* Description */
+.description {
+    font-size: 0.95rem;
+    color: #cccccc;
+    line-height: 1.6;
+    padding: 10px 15px;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    margin: 5px 0;
+}
+
+.celebrite:hover .description {
+    color: #ffffff;
+    background: rgba(26, 77, 46, 0.2);
+}
+
+/* Statistiques */
+.celebrite .stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+    padding: 10px 5px;
+    background: rgba(26, 77, 46, 0.15);
+    border-radius: 8px;
+    border: 1px solid #1a4d2e;
+    z-index: 2;
+    position: relative;
+}
+
+.celebrite .stat {
+    text-align: center;
+}
+
+.celebrite .stat-number {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a4d2e;
+    line-height: 1;
+}
+
+.celebrite .stat-label {
+    font-size: 0.7rem;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.celebrite:hover .stat-number {
+    color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+    
+    .celebrite {
+        flex: 0 0 calc(50% - 30px);
+    }
+    
+    .celebrite img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.8rem;
+        letter-spacing: 3px;
+    }
+    
+    h1::before, h1::after {
+        font-size: 1.5rem;
+        letter-spacing: 10px;
+    }
+    
+    .celebrite {
+        flex: 0 0 100%;
+        max-width: 450px;
+    }
+    
+    .celebrite img {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .celebrite h2 {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+    }
+    
+    h1::before, h1::after {
+        display: none;
+    }
+    
+    .celebrite img {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+/* Animation d'apparition */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.celebrite {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.celebrite:nth-child(1) { animation-delay: 0.1s; }
+.celebrite:nth-child(2) { animation-delay: 0.2s; }
+.celebrite:nth-child(3) { animation-delay: 0.3s; }
+.celebrite:nth-child(4) { animation-delay: 0.4s; }
+.celebrite:nth-child(5) { animation-delay: 0.5s; }
+
+footer{
+text-align:center;
+padding:5px;
+background:linear-gradient(90deg, #1a4d2e, #f5c518, #1a4d2e);
+margin-top:40px;
+}
+/* ===== STYLES DE LA NAVIGATION (À AJOUTER DANS CHAQUE CSS) ===== */
+
+/* Style général pour toutes les pages avec navigation */
+/* ===== NAVBAR FIXE ET IDENTIQUE SUR TOUTES LES PAGES ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;  /* Padding identique partout */
+    background: #000000;
+    position: fixed;      /* CHANGE : fixed au lieu de sticky */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid #f5c518;
+    box-sizing: border-box; /* Important pour que le padding ne déborde pas */
+}
+
+/* Ajustement du contenu pour ne pas être caché sous la navbar fixe */
+body {
+    padding-top: 80px;  /* Ajustez selon la hauteur de votre navbar */
+    margin: 0;
+}
+
+/* Pour les pages avec classe spécifique */
+body.page1, body.page2, body.page3, body.page4 {
+    padding-top: 80px;
+}
+
+.logo {
+    color: #f5c518;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin: 0;
+    white-space: nowrap; /* Empêche le logo de passer à la ligne */
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap; /* Permet aux liens de s'adapter sur mobile */
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: 1.1rem;
+    padding: 8px 12px;
+    border-radius: 5px;
+    white-space: nowrap; /* Empêche les liens de passer à la ligne */
+}
+
+.navbar a:hover {
+    color: #1a4d2e;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar a.active {
+    color: #f5c518;
+    border-bottom: 2px solid #f5c518;
+}
+
+/* ===== RESPONSIVE POUR LA NAVBAR ===== */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 15px 30px;
+    }
+    
+    .navbar ul {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+    
+    .navbar ul {
+        margin-top: 10px;
+        gap: 15px;
+        justify-content: center;
+    }
+    
+    .logo {
+        font-size: 1.8rem;
+    }
+    
+    .navbar a {
+        font-size: 1rem;
+        padding: 5px 10px;
+    }
+    
+    body, body.page1, body.page2, body.page3, body.page4 {
+        padding-top: 120px; /* Plus grand car navbar en colonne */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar ul {
+        gap: 8px;
+    }
+    
+    .navbar a {
+        font-size: 0.85rem;
+        padding: 5px 8px;
+    }
+    
+    body.page3 {
+        padding-top: 140px;
+    }
+}
+/* Style pour le lien actif (page en cours) */
+.navbar a.active {
+    color: #f5c518;
+    border-bottom: 2px solid #f5c518;
+}
+
+/* Responsive pour la navigation */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+    
+    .navbar ul {
+        margin-top: 15px;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .logo {
+        font-size: 1.8rem;
+    }
+    
+    .navbar a {
+        font-size: 1rem;
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar ul {
+        gap: 10px;
+    }
+    
+    .navbar a {
+        font-size: 0.9rem;
+        padding: 5px 8px;
+    }
+}
