@@ -1,0 +1,350 @@
+body{
+font-family: Arial, sans-serif;
+background:black;
+color: white;
+margin: 0;
+}
+header{
+text-align: center;
+padding: 40px;
+background: linear-gradient(90deg,#111,#1f1f1f);
+}
+
+header h1{
+font-size: 40px;
+letter-spacing: 2px;
+color: darkgreen;
+}
+
+header p{
+color: #ccc;
+}
+
+.competition{
+width: 90%;
+margin: auto;
+}
+
+.match{
+display: flex;
+align-items: center;
+margin: 50px 0;
+background: #141414;
+border-radius: 15px;
+overflow: hidden;
+transition: transform 0.4s;
+}
+
+.match:hover{
+transform: scale(1.03);
+}
+
+.match img{
+width: 45%;
+height: 300px;
+object-fit: cover;
+}
+
+.texte{
+padding: 30px;
+}
+
+.texte h2{
+color: darkgreen;
+margin-bottom: 15px;
+}
+
+.texte p{
+line-height: 1.6;
+color: #ddd;
+}
+
+
+/* ===== STYLES DE LA NAVIGATION (À AJOUTER DANS CHAQUE CSS) ===== */
+
+/* Style général pour toutes les pages avec navigation */
+/* ===== NAVBAR FIXE ET IDENTIQUE SUR TOUTES LES PAGES ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;  /* Padding identique partout */
+    background: #000000;
+    position: fixed;      /* CHANGE : fixed au lieu de sticky */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid #f5c518;
+    box-sizing: border-box; /* Important pour que le padding ne déborde pas */
+}
+
+/* Ajustement du contenu pour ne pas être caché sous la navbar fixe */
+body {
+    padding-top: 80px;  /* Ajustez selon la hauteur de votre navbar */
+    margin: 0;
+}
+
+/* Pour les pages avec classe spécifique */
+body.page1, body.page2, body.page3, body.page4 {
+    padding-top: 80px;
+}
+
+.logo {
+    color: #f5c518;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin: 0;
+    white-space: nowrap; /* Empêche le logo de passer à la ligne */
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap; /* Permet aux liens de s'adapter sur mobile */
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: 1.1rem;
+    padding: 8px 12px;
+    border-radius: 5px;
+    white-space: nowrap; /* Empêche les liens de passer à la ligne */
+}
+
+.navbar a:hover {
+    color: #1a4d2e;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar a.active {
+    color: #f5c518;
+    border-bottom: 2px solid #f5c518;
+}
+
+/* ===== RESPONSIVE POUR LA NAVBAR ===== */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 15px 30px;
+    }
+    
+    .navbar ul {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+    
+    .navbar ul {
+        margin-top: 10px;
+        gap: 15px;
+        justify-content: center;
+    }
+    
+    .logo {
+        font-size: 1.8rem;
+    }
+    
+    .navbar a {
+        font-size: 1rem;
+        padding: 5px 10px;
+    }
+    
+    body.page4 {
+        padding-top: 120px; /* Plus grand car navbar en colonne */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar ul {
+        gap: 8px;
+    }
+    
+    .navbar a {
+        font-size: 0.85rem;
+        padding: 5px 8px;
+    }
+    
+    body, body.page1, body.page2, body.page3, body.page4 {
+        padding-top: 140px;
+    }
+}
+
+/* Responsive pour la navigation */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+    
+    .navbar ul {
+        margin-top: 15px;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .logo {
+        font-size: 1.8rem;
+    }
+    
+    .navbar a {
+        font-size: 1rem;
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar ul {
+        gap: 10px;
+    }
+    
+    .navbar a {
+        font-size: 0.9rem;
+        padding: 5px 8px;
+    }
+}
+
+/* EN-TÊTE STYLISÉ - OPTION 3 : Effet projecteurs de stade */
+header {
+    text-align: center;
+    padding: 10px 20px;
+    background: #0a0a0a;
+    position: relative;
+    border-bottom: 3px solid #f5c518;
+}
+
+/* Projecteurs */
+header::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 0%, rgba(245, 197, 24, 0.2) 0%, transparent 30%),
+        radial-gradient(circle at 80% 0%, rgba(245, 197, 24, 0.2) 0%, transparent 30%),
+        radial-gradient(circle at 50% 0%, rgba(255,255,255,0.3) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+header h1 {
+    font-size: 50px;
+    letter-spacing: 5px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 800;
+    text-shadow: 0 0 20px darkgreen, 0 0 40px darkgreen;
+    margin-bottom: 20px;
+    animation: flicker 3s infinite alternate;
+}
+
+@keyframes flicker {
+    from { text-shadow: 0 0 20px darkgreen, 0 0 40px darkgreen; }
+    to { text-shadow: 0 0 30px darkgreen, 0 0 60px darkgreen, 0 0 80px darkgreen; }
+}
+
+header p {
+    color: #f5c518;
+    font-size: 1.4rem;
+    font-weight: 400;
+    padding: 15px 40px;
+    display: inline-block;
+    background: rgba(0,0,0,0.7);
+    border: 2px solid darkgreen;
+    border-radius: 50px;
+    box-shadow: 0 0 30px rgba(245, 197, 24, 0.3);
+    backdrop-filter: blur(5px);
+}
+/* ===== CONTOURS DORÉS À AJOUTER ===== */
+
+/* Contour pour l'en-tête */
+header {
+    border-bottom: 4px solid #f5c518 !important;
+    position: relative;
+}
+
+/* Contour pour la barre de navigation */
+.navbar {
+    border-bottom: 2px solid #f5c518 !important;
+}
+
+/* Contours pour les cartes de match */
+.match {
+    border: 2px solid transparent;
+    transition: all 0.4s ease;
+}
+
+.match:hover {
+    border: 2px solid #f5c518 !important;
+    box-shadow: 0 10px 25px rgba(245, 197, 24, 0.3);
+}
+
+/* Ligne de séparation dorée entre image et texte */
+.match img {
+    border-right: 2px solid #f5c518;
+}
+
+/* Pour les matchs pairs (image à droite), la bordure passe à gauche */
+.match:nth-child(even) img {
+    border-right: none;
+    border-left: 2px solid #f5c518;
+}
+
+/* Ligne dorée sous les titres au survol */
+.texte h2 {
+    position: relative;
+    display: inline-block;
+}
+
+.texte h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #f5c518;
+    transition: width 0.3s ease;
+}
+
+.match:hover .texte h2::after {
+    width: 100%;
+}
+
+/* Contour pour le footer */
+footer {
+    border-top: 3px solid #f5c518 !important;
+}
+
+/* Adaptation mobile */
+@media (max-width: 768px) {
+    .match img {
+        border-right: none !important;
+        border-left: none !important;
+        border-bottom: 2px solid #f5c518;
+    }
+    
+    .match:nth-child(even) img {
+        border-bottom: 2px solid #f5c518;
+    }
+}
+footer{
+text-align:center;
+padding:1px;
+background:linear-gradient(90deg, #1a4d2e, #f5c518, #1a4d2e);
+margin-top:40px;
+}
